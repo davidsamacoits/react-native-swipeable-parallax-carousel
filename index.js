@@ -18,6 +18,7 @@ class SwipeableParallaxCarousel extends Component {
   static defaultProps = {
     height: 200,
     navigationColor: '#ffffff',
+    onPress: () => {},
   }
 
   // Class constructor
