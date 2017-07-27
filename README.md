@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/badge/npm%20package-v1.0.0-blue.svg)](https://www.npmjs.com/package/react-native-swipeable-parallax-carousel)
 
-##### Android & iOS // React Native v0.46+
+### Android & iOS // React Native v0.46+
 
 ![Preview](https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel/blob/master/preview/preview1.gif?raw=true)
 
