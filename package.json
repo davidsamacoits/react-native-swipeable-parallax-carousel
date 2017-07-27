@@ -1,29 +1,32 @@
 {
-name: "react-native-swipeable-parallax-carousel",
-version: "1.0",
-description: "React Native Swipeable Parallax Carousel",
-main: "index.js",
-scripts: { },
-repository: {
-type: "git",
-url: "git@github.com:davidsamacoits/react-native-swipeable-parallax-carousel.git"
-},
-dependencies: {
-},
-keywords: [
-"react",
-"react-native",
-"react-component",
-"carousel",
-"swipeable",
-"parallax",
-"ios",
-"android"
-],
-author: "David Samacoïts-Etchegoin",
-license: "MIT",
-bugs: {
-url: "https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel/issues"
-},
-homepage: "https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel"
+  "name": "react-native-swipeable-parallax-carousel",
+  "version": "0.0.1",
+  "description": "React Native Swipeable Parallax Carousel",
+  "main": "index.js",
+  "scripts": { },
+  "repository": {
+  "type": "git",
+  "url": "git@github.com:davidsamacoits/react-native-swipeable-parallax-carousel.git"
+  },
+  "dependencies": {
+  },
+  "keywords": [
+  "react",
+  "react-native",
+  "react-component",
+  "carousel",
+  "swipeable",
+  "parallax",
+  "ios",
+  "android"
+  ],
+  "author": "David Samacoïts-Etchegoin",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": "^0.46.0"
+  },
+  "bugs": {
+  "url": "https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel/issues"
+  },
+  "homepage": "https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel"
 }
