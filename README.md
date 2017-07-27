@@ -48,7 +48,7 @@ const datacarousel = [
 ```
 
 ### Properties
-| Prop | Description | Default | Required ?
+| Prop | Description | Default | Required
 |---|---|---|---|
 |**`data`**|An array with all your items. Read bellow about **Data array structure**. |*None*|Yes|
 |**`align`**|Title alignment. Could be `left`, `right` or `center`.|`left`|No|
@@ -66,7 +66,7 @@ const datacarousel = [
 
 Your data array **must** be an array of objects with at least an `id` and an `imagePath` key.
 
-| Prop | Description | Required ?
+| Prop | Description | Required
 |---|---|---|
 |**`id`**|Item ID.|Yes|
 |**`title`**|Item title. Omit this prop if you don't want a title.|No|
