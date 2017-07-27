@@ -1,5 +1,7 @@
 # React Native Swipeable Parallax Carousel
 
+[![npm version](https://badge.fury.io/js/react-native-swipeable-parallax-carousel.png)](https://badge.fury.io/js/react-native-swipeable-parallax-carousel)
+
 ##### Android & iOS // React Native v0.46+
 
 ![Preview](https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel/blob/master/preview/preview1.gif?raw=true)
