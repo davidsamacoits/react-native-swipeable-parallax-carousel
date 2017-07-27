@@ -129,7 +129,7 @@ In order to use your carousel component inside a ScrollView and avoid any confli
 
 * Check the demo with Expo on your phone ([See on Expo](https://expo.io/@davidsamacoits/reactnativeswipeableparallaxcarouselexample))
 <br/>
-<br/>
+
 ![Expo QR Code](https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel/blob/master/preview/expoQRcode.png?raw=true)
 
 ## Questions or suggestions?
