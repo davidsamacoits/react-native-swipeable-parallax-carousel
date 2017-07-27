@@ -125,7 +125,7 @@ In order to use your carousel component inside a ScrollView and avoid any confli
 
 ## Questions or suggestions?
 
-Feel free to contact me on [Twitter](https://twitter.com/davidsamacoits) or [create an issue](https://twitter.com/davidsamacoits).
+Feel free to contact me on [Twitter](https://twitter.com/davidsamacoits) or [create an issue](https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel/issues).
 
 ## License
 
