@@ -2,11 +2,11 @@
 
 ##### Android & iOS // React Native v0.46+
 
-IMAGE
+![Preview](https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel/blob/master/preview/preview1.gif?raw=true)
 
 *Carousel with parallax effect, overlay and dots navigation*
 
-IMAGE
+![Preview](https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel/blob/master/preview/preview2.gif?raw=true)
 
 *Carousel without parallax effect, without overlay and with bars navigation*
 
@@ -98,7 +98,7 @@ const datacarousel = [
 You can easily customize your navigation bar with `navigationType`: use `dots`, `bars`or `squares` to give a different look at your navigation items.
 Remember you can also use `navigationColor` to change the color of the current item in your navigation bar.
 
-IMAGE
+![Navigation types](https://github.com/davidsamacoits/react-native-swipeable-parallax-carousel/blob/master/preview/navigationTypes.jpg?raw=true)
 
 *Dots, bars and squares navigation*
 
