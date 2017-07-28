@@ -12,7 +12,7 @@
 
 *Carousel without parallax effect, without overlay and with bars navigation*
 
-## Get starded
+## Get started
 
 ### Installation
 
