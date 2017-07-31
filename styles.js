@@ -1,16 +1,5 @@
-import { Dimensions } from 'react-native';
-
-const CONSTANTS = {
-  DEFAULT_WIDTH: Dimensions.get('window').width,
-};
-
 const styles = {
-  carrouselContainer: {
-    width: CONSTANTS.DEFAULT_WIDTH,
-
-  },
   itemContainer: {
-    width: CONSTANTS.DEFAULT_WIDTH,
     position: 'absolute',
   },
   itemImage: {
@@ -22,7 +11,6 @@ const styles = {
   overlay: {
     position: 'absolute',
     resizeMode: 'stretch',
-    width: CONSTANTS.DEFAULT_WIDTH,
   },
   itemTitleContainer: {
     position: 'absolute',

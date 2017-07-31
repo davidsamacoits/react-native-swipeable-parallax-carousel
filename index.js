@@ -11,10 +11,11 @@ import {
 } from 'react-native';
 import styles from './styles';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
-const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
+const SWIPE_THRESHOLD = 0.25;
 
 class SwipeableParallaxCarousel extends Component {
+  // Default props
+  //
   static defaultProps = {
     height: 200,
     navigationColor: '#ffffff',
@@ -40,12 +41,12 @@ class SwipeableParallaxCarousel extends Component {
         position.setValue({ x: gesture.dx, y: gesture.dy });
       },
       onPanResponderRelease: (event, gesture) => {
-        if (gesture.dx > SWIPE_THRESHOLD) {
+        if (gesture.dx > SWIPE_THRESHOLD * this.state.screenWidth) {
           // Can't swipe if it's the beginning
           if (this.state.currentItem === 0) {
             this._resetPosition();
           } else this._forceSwipe('right');
-        } else if (gesture.dx < -SWIPE_THRESHOLD) {
+        } else if (gesture.dx < -SWIPE_THRESHOLD * this.state.screenWidth) {
           // Can't swipe if it's the end
           if (this.state.currentItem === this.props.data.length - 1) {
             this._resetPosition();
@@ -63,13 +64,14 @@ class SwipeableParallaxCarousel extends Component {
     this.state = {
       currentItem: 0,
       nextItem: 0,
+      screenWidth: Dimensions.get('window').width,
     };
   }
 
   // Force swipe
   //
   _forceSwipe(direction) {
-    const distance = (direction === 'right') ? SCREEN_WIDTH : -SCREEN_WIDTH;
+    const distance = (direction === 'right') ? this.state.screenWidth : -this.state.screenWidth;
     // Calculate nextItem
     const currentitem = this.state.currentItem;
     const newitem = (direction === 'right') ? currentitem - 1 : currentitem + 1;
@@ -97,7 +99,7 @@ class SwipeableParallaxCarousel extends Component {
   // Get overlay
   //
   _getOverlay(overlayPath, height) {
-    if (overlayPath) return <Image source={overlayPath} style={[styles.overlay, { height }]} />;
+    if (overlayPath) return <Image source={overlayPath} style={[styles.overlay, { height, width: this.state.screenWidth }]} />;
     return null;
   }
 
@@ -139,15 +141,15 @@ class SwipeableParallaxCarousel extends Component {
     // Current item zIndex (for parallax effect)
     const zIndex = (index === this.state.currentItem) ? 0 : 1;
     // Default margin based on the item position
-    const defaultmargin = ((index - this.state.currentItem) * SCREEN_WIDTH);
-    let deltaleft = SCREEN_WIDTH;
-    if (this.props.parallax && index === this.state.currentItem) deltaleft = SCREEN_WIDTH / 4;
-    if (!this.props.parallax && this.state.currentItem === this.props.data.length - 1) deltaleft = SCREEN_WIDTH / 4;
-    let deltaright = SCREEN_WIDTH;
-    if (this.props.parallax && index === this.state.currentItem) deltaright = SCREEN_WIDTH / 4;
-    if (!this.props.parallax && this.state.currentItem === 0) deltaright = SCREEN_WIDTH / 4;
+    const defaultmargin = ((index - this.state.currentItem) * this.state.screenWidth);
+    let deltaleft = this.state.screenWidth;
+    if (this.props.parallax && index === this.state.currentItem) deltaleft = this.state.screenWidth / 4;
+    if (!this.props.parallax && this.state.currentItem === this.props.data.length - 1) deltaleft = this.state.screenWidth / 4;
+    let deltaright = this.state.screenWidth;
+    if (this.props.parallax && index === this.state.currentItem) deltaright = this.state.screenWidth / 4;
+    if (!this.props.parallax && this.state.currentItem === 0) deltaright = this.state.screenWidth / 4;
     const margin = position.x.interpolate({
-      inputRange: [-SCREEN_WIDTH, 0, SCREEN_WIDTH],
+      inputRange: [-this.state.screenWidth, 0, this.state.screenWidth],
       outputRange: [defaultmargin - deltaleft, defaultmargin, defaultmargin + deltaright],
     });
     return { left: margin, zIndex, elevation: zIndex };
@@ -168,7 +170,7 @@ class SwipeableParallaxCarousel extends Component {
         <Animated.View
           key={item.id}
           {...this.panResponder.panHandlers}
-          style={[styles.itemContainer, { height }, this._getItemStyle(index)]}
+          style={[styles.itemContainer, { height, width: this.state.screenWidth }, this._getItemStyle(index)]}
         >
           <TouchableOpacity
             onPress={() => onPress(item.id)}
@@ -230,13 +232,21 @@ class SwipeableParallaxCarousel extends Component {
     });
   }
 
+  // onLayout method to resize when orientation change
+  //
+  _onLayout() {
+    this.setState({ screenWidth: Dimensions.get('window').width });
+  }
+
   // Render method
   //
   render() {
     return (
-      <View style={[styles.carrouselContainer, { height: this.props.height }]}>
-        {this._renderItems()}
-        {this._renderNavigation()}
+      <View onLayout={this._onLayout.bind(this)}>
+        <View style={{ height: this.props.height, width: this.state.screenWidth }}>
+          {this._renderItems()}
+          {this._renderNavigation()}
+        </View>
       </View>
     );
   }
